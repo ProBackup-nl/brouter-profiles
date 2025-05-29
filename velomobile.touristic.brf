@@ -223,10 +223,10 @@ assign surfacepenalty
  add switch embedded_rails=tram|yes|rail 10 # Zusatzkosten bei Schienen in der Fahrbahn
  0
  multiply avoidbw
- switch surface=asphalt|paved 0 #Zusatzkosten für Teer oder versiegelte Flächen
+ switch surface=asphalt|concrete|paved 0 #Zusatzkosten für Teer, Beton oder versiegelte Flächen
  switch concrete=plates 0.5 # Zusatzkosten für Betonplattenwege
  switch concrete=lanes  5 # Zusatzkosten für Betonspurplatten
- switch surface=concrete|paving_stones|wood|metal 0.5 #Zusatzkosten für Beton, Pflastersteine, Holz oder Metall
+ switch surface=paving_stones|wood|metal 0.5 #Zusatzkosten für Pflastersteine, Holz oder Metall
  switch surface=grass_paver 5 #Zusatzkosten für  Rasengittersteine
  switch surface=cobblestone|fine_gravel|compacted|sett 1.5 #Zusatzkosten für Kopfsteinpflaster, Splitt, verdichtete Deckschicht, behauene Pflastersteine
  switch surface=gravel|sand|pebblestone 10 #Zusatzkosten für Schotter, Sand oder Kies
