@@ -464,7 +464,7 @@ assign initialcost
   switch highway=give_way 100 # Kosten für Vorfahrt gewähren
   switch highway=crossing 10 # Kosten für Vorfahrt gewähren
   switch railway=crossing|level_crossing 350 # Kosten für Bahnübergang
-  switch traffic_calming=choker|hump 25 # Kosten für Verkehrsberuhigung
+  switch traffic_calming=choker|hump 25 # Kosten für Bodenwellen Verkehrsberuhigung
   #switch traffic_calming=double_dip 75
   switch traffic_calming=yes 250
   switch traffic_calming=bump 500
