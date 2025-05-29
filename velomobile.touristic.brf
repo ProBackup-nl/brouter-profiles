@@ -1,5 +1,9 @@
 #
 # Touristic profile for velomobiles, contributed by Jockel Hofmann, based on "Rennrad - wenig Verkehr"
+#  - vermeidet viel stärker Höhenmeter, 
+#  - wählt bergauf kleinere, bergab größere Straßen
+#  - bergab, Abbiegen teuer
+#  - folgt auch durchgehenden, asphaltierten Radrouten @ https://www.velomobilforum.de/forum/index.php?threads/brouter-ein-konfigurierbarer-offline-streckenrouter-web-android.38274/post-1544915
 
 ---context:global
 
