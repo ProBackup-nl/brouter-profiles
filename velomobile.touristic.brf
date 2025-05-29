@@ -2,7 +2,7 @@
 # Touristic profile for velomobiles, contributed by Jockel Hofmann, based on "Rennrad - wenig Verkehr"
 
 ---context:global
-
+#assign processUnusedTags = true # add debug output
 assign no_steps = true # %no_steps% | keine Stufen, das Velomobil soll nicht getragen werden müssen | boolean
 assign no_wrong_oneway = false # %no_wrong oneway% | keine Einbahnstrasse in falsche Richtung, auch nicht schiebend | boolean
 
