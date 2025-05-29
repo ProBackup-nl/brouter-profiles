@@ -235,12 +235,15 @@ assign surfacepenalty
 
 assign smoothnesspenalty
  multiply avoidbw
- switch smoothness=excellent|good|very_good 0 #Zusatzkosten für excellente, gute, oder sehr gute Oberflächen
+ switch smoothness=excellent 0 #Zusatzkosten für excellente Oberflächen
+ switch smoothness=very_good 0.4 #Zusatzkosten für sehr gute Oberflächen, z.B. Splitt auf Asphalt, der auf Rollerblades und in einem ungefederten Velomobil weniger angenehm zu fahren ist.
+ switch smoothness=good 0.5 #Zusatzkosten für gute Oberflächen
+                      # 0.6 is too much for avoiding Eindhoven where destination is Veldhoven-dorp and origin is northeast
  switch smoothness=intermediate|medium 1 #Zusatzkosten für mittelmäßige Oberflächen
  switch smoothness=rough|poor 2 #Zusatzkosten für raue oder schlechte Oberflächen
  switch smoothness=robust_wheels|bad 10 #Zusatzkosten für Oberflächen die robuste Reifen benötigen oder schlechte Oberflächen
  switch smoothness=high_clearance|off_road_wheels|very_bad|horrible|very_horrible|impassable 100 #Zusatzkosten für Oberflächen die eine erhöhte Bodenfreiheit oder Geländebereifung benötigen, schrecklich, sehr schrecklich oder unpasierbar sind
- 0
+ 0.5 # =good als Standardwert
 
 
 assign costfactor
