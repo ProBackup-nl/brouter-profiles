@@ -459,7 +459,8 @@ assign footaccess
  1
 
 assign initialcost
- add switch highway=traffic_signals 250 # Kosten für Ampel
+ add switch highway=elevator 1600 # Kosten für Fahrstuhl z.B. Antwerpen Schelde Ost-West
+  switch highway=traffic_signals 250 # Kosten für Ampel
   switch highway=stop 200 # Kosten für Stoppschild
   switch highway=give_way 100 # Kosten für Vorfahrt gewähren
   switch highway=crossing 10 # Kosten für Vorfahrt gewähren
