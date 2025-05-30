@@ -209,7 +209,10 @@ assign flatspeedpenalty
  switch equal maxspeed 20 1 # Zusatzkosten für Geschwindigkeitsbegrenzung 20 km/h in der Ebene
  switch equal maxspeed 30 0.5 # Zusatzkosten für Geschwindigkeitsbegrenzung 30 km/h in der Ebene
  switch equal maxspeed 40 0.3 # Zusatzkosten für Geschwindigkeitsbegrenzung 40 km/h in der Ebene
- switch equal maxspeed 50 0.1 # Zusatzkosten für Geschwindigkeitsbegrenzung 50 km/h in der Ebene
+ switch equal maxspeed 70 0.1 # Zusatzkosten für Geschwindigkeitsbegrenzung 70 km/h in der Ebene
+ switch equal maxspeed 80 0.2 # Zusatzkosten für Geschwindigkeitsbegrenzung 80 km/h in der Ebene
+ switch equal maxspeed 90 0.3 # Zusatzkosten für Geschwindigkeitsbegrenzung 90 km/h in der Ebene
+ switch equal maxspeed 100 0.4 # Zusatzkosten für Geschwindigkeitsbegrenzung 100 km/h in der Ebene
  0
 
 assign upspeedpenalty
