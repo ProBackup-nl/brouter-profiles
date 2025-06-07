@@ -5,8 +5,8 @@
   - bergab, Abbiegen teuer
   - folgt auch durchgehenden, asphaltierten Radrouten @ https://www.velomobilforum.de/forum/index.php?threads/brouter-ein-konfigurierbarer-offline-streckenrouter-web-android.38274/post-1544915
 ## Referenzrouten DE:
- - https://bikerouter.de/#map=12/50.0011/8.0592/standard,Smoothness&lonlats=7.850075,50.009051;8.278885,50.007517&profile=vm-forum-velomobil-touristisch
- - https://bikerouter.de/#map=11/50.0541/8.5419/standard,Smoothness&lonlats=8.773527,50.107535;8.31459,49.997151&profile=vm-forum-velomobil-touristisch
+ - [Trechtingshausen-Mainz](https://bikerouter.de/#map=12/50.0011/8.0592/standard,Smoothness&lonlats=7.850075,50.009051;8.278885,50.007517&profile=vm-forum-velomobil-touristisch)
+ - [Offenbach am Main-Mainz](https://bikerouter.de/#map=11/50.0541/8.5419/standard,Smoothness&lonlats=8.773527,50.107535;8.31459,49.997151&profile=vm-forum-velomobil-touristisch)
 ## Enhancements by C. Jacobs (for NL):
  - higher turning cost, except for `roundabout`|`bridge`|`tunnel`|`primary`|`secondary`|`tertiary`
  - no penaly for `concrete` surface
