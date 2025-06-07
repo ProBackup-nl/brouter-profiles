@@ -23,7 +23,7 @@
  - extra penalty for `uncontrolled` `crossing`s on cycleways (don't like crossings on cycleways, especially in parallel to 30/40/50/60 km/h main roads, often bad sight)
 ## Route not good?
  1. check Tab (press keyboard `T` key to open), route data (press `shift`+`T` to cycle through the tabs)
- 2. check [osm.org](https://www.openstreetmap.org/) that ways and nodes are marked correct
+ 2. check [osm.org](https://www.openstreetmap.org/) that ways and nodes are marked correct, 
     often:
     - `give_way`, stop signs, `traffic_calming`, `surface`, `smoothness` are not tagged
     - after an edit, wait a night (up to 12 hours) for bikerouter.de to update osm tags, and recalculate ( `r` key, twice)
