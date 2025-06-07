@@ -7,8 +7,8 @@
  - https://bikerouter.de/#map=12/50.0011/8.0592/standard,Smoothness&lonlats=7.850075,50.009051;8.278885,50.007517&profile=vm-forum-velomobil-touristisch
  - https://bikerouter.de/#map=11/50.0541/8.5419/standard,Smoothness&lonlats=8.773527,50.107535;8.31459,49.997151&profile=vm-forum-velomobil-touristisch
 # Enhancements:
- - higher turning cost, except for roundabout|bridge|tunnel|primary|secondary|tertiary
- - no penaly for concrete surface
+ - higher turning cost, except for `roundabout`|`bridge`|`tunnel`|`primary`|`secondary`|`tertiary`
+ - no penaly for `concrete` surface
  - penalties for velomobile annoyances like: stop signs, `give_way`, `traffic calming`, `barrier`s, elevator, short oneway cyclepaths on bridges, ...
  - honour direction of `give_way`, stop and traffic signs
  - lower penalty for `give_way` on cycle paths
