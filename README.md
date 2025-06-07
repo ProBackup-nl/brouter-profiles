@@ -9,20 +9,20 @@
 # Enhancements:
  - higher turning cost, except for roundabout|bridge|tunnel|primary|secondary|tertiary
  - no penaly for concrete surface
- - penalties for velomobile annoyances like: stop signs, give_way, traffic calming, barriers, elevator, short oneway cyclepaths on bridges, ...
- - honour direction of give_way, stop and traffic signs
- - lower penalty for give_way on cycle paths
- - extra (driver safety) penalty for short sett|cobblestone ways, ...
- - penalty for flat primary|secondary roads where maxspeed=80 and use_sidepath
- - primary at 50 km/h given cost equal to secondary
+ - penalties for velomobile annoyances like: stop signs, `give_way`, `traffic calming`, `barrier`s, elevator, short oneway cyclepaths on bridges, ...
+ - honour direction of `give_way`, stop and traffic signs
+ - lower penalty for `give_way` on cycle paths
+ - extra (driver safety) penalty for short `sett`|`cobblestone` ways, ...
+ - penalty for flat primary|secondary roads where `maxspeed`=80 and `use_sidepath`
+ - `primary` at 50 km/h given cost equal to `secondary`
  - lower flatspeedpenalty for 30/40/50 km/h, higher for 90/100 km/h
- - higher cost for cobblestone|sett
- - default cost for unknown smoothness and a lower differentiated cost for excellent|very_good|good
- - penalty for ways class:bicycle=-2 ; and near impassable class:bicycle=-3
- - extra penalty for uncontrolled crossings on cycleways (don't like crossings on cycleways, especially 30/40/50 km/h, often bad sight)
+ - higher cost for `cobblestone`|`sett` surfaces
+ - default cost for `unknown` `smoothness` and a lower differentiated cost for `excellent`|`very_good`|`good`
+ - penalty for bad ways `class:bicycle=-2` ; and near impassable `class:bicycle=-3`
+ - extra penalty for `uncontrolled` `crossing`s on cycleways (don't like crossings on cycleways, especially in parallel to 30/40/50/60 km/h main roads, often bad sight)
 # Route not good?
  1. check Tab, with route data
- 2. check osm.org that ways and nodes are marked correct
+ 2. check [osm.org](https://www.openstreetmap.org/) that ways and nodes are marked correct
  3. file an issue at github, include 2 bikerouter links:
     1. to only the route part that you don't like, and
     2. a link with extra route point added so the route follows your intended route for the part of link #1
