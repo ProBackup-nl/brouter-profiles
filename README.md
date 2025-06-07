@@ -26,6 +26,7 @@
  2. check [osm.org](https://www.openstreetmap.org/) that ways and nodes are marked correct, 
     often:
     - `give_way`, stop signs, `traffic_calming`, `surface`, `smoothness` are not tagged
+    - is there a crossing that you don't like to take? Assign `class:bicycle=-2`, often a way of 10-20 meters in length will do. If it's a crossing that is dangerous for regular bicycles, you might assign `-3`.
     - after an edit, wait a night (up to 12 hours) for bikerouter.de to update osm tags, and recalculate ( `r` key, twice)
  4. file an issue at github, include 2 bikerouter links:
     1. to only the route part that you don't like, and
