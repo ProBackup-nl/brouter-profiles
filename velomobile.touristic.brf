@@ -100,7 +100,7 @@ assign initialclassifier # hier wird bestimmten Wegen ein Wert zugeordnet und we
  1
 
 assign initialcost
- switch route=ferry 5000 # Kosten wenn eine Fähre verwendet wird
+ switch route=ferry 10000 # Kosten wenn eine Fähre verwendet wird
  switch highway=steps switch no_steps 1000000 dismount_cost # Kosten für Stufen
  switch sett_cobble 599 # Extra Kosten für gefährliche Oberflächen
  switch cycle_oneway_onbridge 500 # Kosten für schmale Radwege die von Fahrräder/Mofas/Mopeds oft ignoriert werden = hohe Kollisionsgefahr
