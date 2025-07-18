@@ -88,7 +88,10 @@ assign turncost
  switch or bridge=yes or tunnel=yes junction=roundabout 40
  switch or highway=primary highway=primary_link 139 # In der Regel breite Fahrspuren und größere Radien -> höhere Geschwindigkeit
  switch or highway=secondary highway=secondary_link 140 # Maybe: increase difference between these 3 costs, prim/sec should be close to each other
- switch or highway=tertiary highway=tertiary_link 141 # Weniger als 130 geht schief auf dem Weg nach Veldhoven-Dorp aus Richtung Nord-Ost
+ switch or highway=tertiary highway=tertiary_link 295 # Weniger als 130 geht schief auf dem Weg nach Veldhoven-Dorp aus Richtung Nord-Ost
+ switch highway=cycleway 425 # Reduction, case: Den Bosch (short-cut over cycleway is preferred over Tivoliweg) 
+                             # note: in combination with tertiary_link above increased from 141 to 295
+                             # https://bikerouter.de/#map=16/51.7055/5.3452t/standard&lonlats=5.346362,51.705172;5.334719,51.708783
  480 # Kosten die für eine 90 Grad Abbiegung berechnet werden. Für kleinere Winkel werden sie mit turncost*cos(Winkel) berechnet, bei Kreisverkehr keine weitere Kosten
 
 assign initialclassifier # hier wird bestimmten Wegen ein Wert zugeordnet und wenn er sich vom vorherigen unterscheidet die initalcost hinzugerechnet
@@ -534,11 +537,9 @@ assign initialcost
    switch and not way:oneway and not traffic_signals:direction=both and not traffic_signals:direction= not xor way:iswayreverse traffic_signals:direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
    499 # Standard Kosten für Ampel
   switch highway=stop
-   # ToDo: include stop:direction
-   switch and not way:oneway and not direction=both and not direction=  not xor way:iswayreverse direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
+   switch and not way:oneway and not direction=both and not direction= not xor way:iswayreverse direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
    800 # Kosten für Stoppschild
   switch highway=give_way
-   # ToDo: include give_way:direction
    switch and not way:oneway and not direction=both and not direction= not xor way:iswayreverse direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
    switch way:cycleway 29 # Lower cost on cycleway
    switch way:isroundabout 14 # Even lower cost on roundabout
@@ -546,10 +547,11 @@ assign initialcost
   switch crossing=zebra 
    switch way:cycleway multiply 8.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
    57
-  switch crossing=uncontrolled
+  # Disabled to fix case: https://bikerouter.de/#map=17/51.70668/5.34230/standard&lonlats=5.346362,51.705172;5.341802,51.706914;5.334719,51.708783
+  #switch crossing=uncontrolled
    #switch crossing:markings=zebra 57
-   switch way:cycleway multiply 7.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
-   27
+  # switch way:cycleway multiply 7.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
+  # 27
   switch highway=crossing 10 # Kosten für Vorfahrt gewähren
   switch railway=crossing|level_crossing 350 # Kosten für Bahnübergang
   switch traffic_calming=yes 125
@@ -575,7 +577,7 @@ assign initialcost
    275
   switch traffic_calming=unknown 11 #painted_table etc.
   switch highway=steps switch no_steps 1000000 dismount_cost #Kosten für Stufe
-  switch barrier=cycle_barrier|motorcycle_barrier 1000 # How can one pass such a barrier with a velomobile without damaging the velomobile?
+  switch barrier=cycle_barrier|motorcycle_barrier 2000 # How can one pass such a barrier with a velomobile without damaging the velomobile?
   switch barrier=bollard|debris|gate|yes 40 # Kosten für Barrieren
   0
  switch bikeaccess
