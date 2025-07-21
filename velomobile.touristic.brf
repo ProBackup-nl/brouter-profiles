@@ -26,7 +26,7 @@ assign ignore_bicycle_no = false # %ignore_bicycle_no% | für Regionen mit falsc
 
 assign turnInstructionMode          = 3     # %turnInstructionMode% | Mode for the generated turn instructions | [0=none, 1=auto-choose, 2=locus-style, 3=osmand-style, 4=comment-style, 5=gpsies-style, 6=orux-style, 7=locus-old-style]
                                             # note: 1=auto-choose generates too many TBT messages in OsmAnd and no rount-about-exit-numbers, better choose 3 for OsmAnd.
-assign turnInstructionCatchingRange 20 # innerhalb dieser Strecke werden mehrere Abiegehinweise zu einem zusammengefasst und die Abiegewinkel werden besser an die generelle Richtung angenähert
+assign turnInstructionCatchingRange 32 # innerhalb dieser Strecke werden mehrere Abiegehinweise zu einem zusammengefasst und die Abiegewinkel werden besser an die generelle Richtung angenähert
 assign turnInstructionRoundabouts true # mit "false" werden keine speziellen Abiegehinweise für den Kreisverkehr generiert 
 
 assign avoidmr2 multiply 0.11111111 multiply avoid_main_roads avoid_main_roads
@@ -88,11 +88,14 @@ assign turncost
  switch or bridge=yes or tunnel=yes junction=roundabout 40
  switch or highway=primary highway=primary_link 139 # In der Regel breite Fahrspuren und größere Radien -> höhere Geschwindigkeit
  switch or highway=secondary highway=secondary_link 140 # Maybe: increase difference between these 3 costs, prim/sec should be close to each other
- switch or highway=tertiary highway=tertiary_link 295 # Weniger als 130 geht schief auf dem Weg nach Veldhoven-Dorp aus Richtung Nord-Ost
- switch highway=cycleway 425 # Reduction, case: Den Bosch (short-cut over cycleway is preferred over Tivoliweg) 
-                             # note: in combination with tertiary_link above increased from 141 to 295
-                             # https://bikerouter.de/#map=16/51.7055/5.3452t/standard&lonlats=5.346362,51.705172;5.334719,51.708783
- 480 # Kosten die für eine 90 Grad Abbiegung berechnet werden. Für kleinere Winkel werden sie mit turncost*cos(Winkel) berechnet, bei Kreisverkehr keine weitere Kosten
+ switch or highway=tertiary highway=tertiary_link 141 # Weniger als 130 geht schief auf dem Weg nach Veldhoven-Dorp aus Richtung Nord-Ost
+ #switch highway=cycleway 420
+ #480 (480-310=170/2=85 + 310 = 395)
+ 395 # Kosten die für eine 90 Grad Abbiegung berechnet werden. Für kleinere Winkel werden sie mit turncost*cos(Winkel) berechnet, bei Kreisverkehr keine weitere Kosten
+ # >= 310 Landesstrasse nicht überqueren wo lanes=2 und maxspeed=80
+ # case: https://bikerouter.de/#map=15/51.5909/5.7634/standard,Smoothness&lonlats=5.756341,51.596376;5.76527,51.585045&profile=velomobil-touristic
+ # >= 439 takes too long detour via main road instead of cycleway at turn: De Grote Elst -> Tivoliweg
+ # case: https://bikerouter.de/#map=19/51.70662/5.34261/standard&lonlats=5.342916,51.706355;5.338068,51.708869
 
 assign initialclassifier # hier wird bestimmten Wegen ein Wert zugeordnet und wenn er sich vom vorherigen unterscheidet die initalcost hinzugerechnet
  switch route=ferry 2
@@ -537,9 +540,11 @@ assign initialcost
    switch and not way:oneway and not traffic_signals:direction=both and not traffic_signals:direction= not xor way:iswayreverse traffic_signals:direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
    499 # Standard Kosten für Ampel
   switch highway=stop
+   # ToDo: implement stop:direction (waiting for PR # 458)
    switch and not way:oneway and not direction=both and not direction= not xor way:iswayreverse direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
    800 # Kosten für Stoppschild
   switch highway=give_way
+   # ToDo: implement give_way:direction (waiting for PR # 458)
    switch and not way:oneway and not direction=both and not direction= not xor way:iswayreverse direction=forward 0 # Oneway|Direction=both|Direction=<empty>? Then always count. Not in driving direction? Then no cost
    switch way:cycleway 29 # Lower cost on cycleway
    switch way:isroundabout 14 # Even lower cost on roundabout
@@ -552,7 +557,7 @@ assign initialcost
    #switch crossing:markings=zebra 57
   # switch way:cycleway multiply 7.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
   # 27
-  switch highway=crossing 10 # Kosten für Vorfahrt gewähren
+  #switch highway=crossing 10 # Kosten für Vorfahrt gewähren
   switch railway=crossing|level_crossing 350 # Kosten für Bahnübergang
   switch traffic_calming=yes 125
   switch traffic_calming=bump 
