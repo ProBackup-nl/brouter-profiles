@@ -26,7 +26,7 @@ assign ignore_bicycle_no = false # %ignore_bicycle_no% | für Regionen mit falsc
 
 assign turnInstructionMode          = 3     # %turnInstructionMode% | Mode for the generated turn instructions | [0=none, 1=auto-choose, 2=locus-style, 3=osmand-style, 4=comment-style, 5=gpsies-style, 6=orux-style, 7=locus-old-style]
                                             # note: 1=auto-choose generates too many TBT messages in OsmAnd and no rount-about-exit-numbers, better choose 3 for OsmAnd.
-assign turnInstructionCatchingRange 32 # innerhalb dieser Strecke werden mehrere Abiegehinweise zu einem zusammengefasst und die Abiegewinkel werden besser an die generelle Richtung angenähert
+assign turnInstructionCatchingRange 9 # innerhalb dieser Strecke werden mehrere Abiegehinweise zu einem zusammengefasst und die Abiegewinkel werden besser an die generelle Richtung angenähert
 assign turnInstructionRoundabouts true # mit "false" werden keine speziellen Abiegehinweise für den Kreisverkehr generiert 
 
 assign avoidmr2 multiply 0.11111111 multiply avoid_main_roads avoid_main_roads
@@ -552,12 +552,11 @@ assign initialcost
   switch crossing=zebra 
    switch way:cycleway multiply 8.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
    57
-  # Disabled to fix case: https://bikerouter.de/#map=17/51.70668/5.34230/standard&lonlats=5.346362,51.705172;5.341802,51.706914;5.334719,51.708783
-  #switch crossing=uncontrolled
-   #switch crossing:markings=zebra 57
-  # switch way:cycleway multiply 7.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
-  # 27
-  #switch highway=crossing 10 # Kosten für Vorfahrt gewähren
+  switch crossing=uncontrolled
+   switch crossing:markings=zebra 57
+   switch way:cycleway multiply 7.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
+   27
+  switch highway=crossing 10 # Kosten für Vorfahrt gewähren
   switch railway=crossing|level_crossing 350 # Kosten für Bahnübergang
   switch traffic_calming=yes 125
   switch traffic_calming=bump 
