@@ -553,7 +553,7 @@ assign initialcost
    switch way:cycleway multiply 8.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
    57
   switch crossing=uncontrolled
-   switch crossing:markings=zebra 57
+   #switch crossing:markings=zebra 57 #ToDo: wait for nslookup.dat update
    switch way:cycleway multiply 7.8 avoid_cycleways # Extra penalty for crossings on a cycleway because of bad low sight position in velomobiles
    27
   switch highway=crossing 10 # Kosten für Vorfahrt gewähren
